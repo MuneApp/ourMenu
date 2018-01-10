@@ -1,8 +1,6 @@
 import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IonicStorageModule } from '@ionic/storage';
-
 /**
  * Generated class for the SupperPage page.
  *
@@ -22,9 +20,16 @@ Apettizer:string;
 Dessert:string;
 Main_Dish:string;
 Side_Dish:string;
-food:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
+public Supper;
+  constructor(public navCtrl: NavController,  public navParams: NavParams, private storage:Storage) {
+    this.Supper={
+      Day:this.Day,
+      Apettizer:this.Apettizer,
+      Dessert:this.Dessert,
+      Main_Dish:this.Main_Dish,
+      Side_Dish:this.Side_Dish
+    }
   }
 
   ionViewDidLoad() {
@@ -32,24 +37,24 @@ food:string;
   }
 
   save(){
-    let Main_Dish={
-      Food:this.food,
-    }
-    let numberOfDay =this.magicNumbers();
-    this.storage.set('DayName'+numberOfDay,Main_Dish).then(()=>{
-      alert("Datasaved");
+    this.storage.set("object",this.Supper).then((successSupper)=>{
+      console.log("Supper Stored");
+      console.log(successSupper);
     }).catch((error)=>{
       console.log(error);
     });
-    this.food='';
-  }
 
-  magicNumbers(){
-    return Math.floor(Math.random()*1);
+    this.Day='';
+    this.Apettizer='';
+    this.Dessert='';
+    this.Main_Dish='';
+    this.Side_Dish='';
   }
 
   go(){
-    this.navCtrl.push("SupperPage");
+    this.storage.get("object").then((Supper)=>{
+      console.log(Supper);
+    })
   }
 
 }
