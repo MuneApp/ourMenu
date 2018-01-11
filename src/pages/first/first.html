@@ -12,17 +12,10 @@
 
 
 <ion-content padding>
-
+ 
     <ion-tabs>
         <ion-tab tabTitle="Breakfast" [root]="tab1" ></ion-tab>
         <ion-tab tabTitle="Lunch" [root]="tab2" ></ion-tab>
         <ion-tab tabTitle="Supper" [root]="tab3" ></ion-tab>
-      </ion-tabs>
-    
-      <ion-list >
-        <ion-item *ngFor="let Main_Dish  of Dish" >
-         <p>Food: {{Main_Dish.food}}</p> 
-        </ion-item>
-      </ion-list>
-
+    </ion-tabs>
 </ion-content>

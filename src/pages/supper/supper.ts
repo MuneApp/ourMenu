@@ -52,7 +52,7 @@ public Supper;
   }
 
   go(){
-    this.storage.get("object").then((Supper)=>{
+    this.storage.get("Supper").then((Supper)=>{
       console.log(Supper);
     })
   }
