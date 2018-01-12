@@ -1,4 +1,4 @@
-import { Storage } from '@ionic/storage';
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 /**
@@ -22,7 +22,7 @@ Main_Dish:string;
 Side_Dish:string;
 
 public Supper;
-  constructor(public navCtrl: NavController,  public navParams: NavParams, private storage:Storage) {
+  constructor(public navCtrl: NavController,  public navParams: NavParams) {
     this.Supper={
       Day:this.Day,
       Apettizer:this.Apettizer,
@@ -36,7 +36,7 @@ public Supper;
     console.log('ionViewDidLoad SupperPage');
   }
 
-  save(){
+ /* save(){
     this.storage.set("object",this.Supper).then((successSupper)=>{
       console.log("Supper Stored");
       console.log(successSupper);
@@ -56,5 +56,5 @@ public Supper;
       console.log(Supper);
     })
   }
-
+*/
 }
