@@ -18,36 +18,36 @@
   <ion-list>
     <ion-item>
     <ion-label fixed>Day</ion-label>
-    <ion-input type="text" placeholder="Enter day" #name>
+    <ion-input [(ngModel)]="Day" type="text" placeholder="Enter day">
     </ion-input>
     </ion-item>
 
     <ion-item>
-    <ion-label fixed>Appetizer</ion-label>
-    <ion-input type="text" placeholder="Enter appetizer" #name>
+    <ion-label>Appetizer</ion-label>
+    <ion-input [(ngModel)]="Appetizer" type="text" placeholder="Enter appetizer">
     </ion-input>
     </ion-item>
 
     <ion-item>
-    <ion-label fixed>Main Dish</ion-label>
-    <ion-input type="text" placeholder="Enter main dish" #name>
+    <ion-label>Main Dish</ion-label>
+    <ion-input [(ngModel)]="Main_Dish" type="text" placeholder="Enter main dish" #name>
     </ion-input>
     </ion-item>
 
     <ion-item>
-    <ion-label fixed>Side dish</ion-label>
-    <ion-input type="text" placeholder="Enter side dish" #name>
+    <ion-label>Side dish</ion-label>
+    <ion-input [(ngModel)]="Side_Dish" type="text" placeholder="Enter side dish">
     </ion-input>
     </ion-item>
 
     <ion-item>
-    <ion-label fixed>Dessert</ion-label>
-    <ion-input type="text" placeholder="Enter dessert" #name>
+    <ion-label>Dessert</ion-label>
+    <ion-input [(ngModel)]="Dessert" type="text" placeholder="Enter dessert">
     </ion-input>
     </ion-item>
-    </ion-list> 
+    </ion-list>
 
-    <button ion-button color="secondary" (click)="sayHello()">SAVE</button>
+    <button ion-button color="secondary" (click)="getMenu()" [disabled]="!Day || !Appetizer || !Main_Dish || !Side_Dish || !Dessert">SAVE Lunch</button>
 
-
+    <button ion-button (click)="showMenu()"  color="secondary" >View week's menu</button>
 </ion-content>

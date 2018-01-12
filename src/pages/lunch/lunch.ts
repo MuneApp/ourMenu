@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -15,11 +16,45 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LunchPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  Day:string;
+  Appetizer:string;
+  Dessert:string;
+  Main_Dish:string;
+  Side_Dish:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage:Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LunchPage');
   }
+  getMenu(){
+    let menu={
+      Day:this.Day,
+      Appetizer:this.Appetizer,
+      Dessert:this.Dessert,
+      Main_Dish:this.Main_Dish,
+      Side_Dish:this.Side_Dish,
+    }
 
+    let id =this.magicNumbers();
+    this.storage.set('Day'+id, menu).then(()=>{
+      alert("Lunch saved");
+    }).catch((error)=>{
+      console.log(error);
+    });
+    this.Day='';
+    this.Appetizer='';
+    this.Dessert='';
+    this.Main_Dish='';
+    this.Side_Dish='';
+  }
+
+  magicNumbers(){
+    return Math.floor(Math.random()*9999);
+  }
+
+  showMenu(){
+    this.navCtrl.push("WeekMenuPage");
+  }
 }

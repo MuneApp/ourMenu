@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SupperPage } from './supper';
+import { WeekMenuPage } from './week-menu';
 
 @NgModule({
   declarations: [
-    SupperPage,
+    WeekMenuPage,
   ],
   imports: [
-    IonicPageModule.forChild(SupperPage),
+    IonicPageModule.forChild(WeekMenuPage),
   ],
 })
-export class SupperPageModule {}
+export class WeekMenuPageModule {}
