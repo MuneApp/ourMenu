@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SupperPage } from './supper';
+import { SupperPage } from './Supper';
 
 @NgModule({
   declarations: [
